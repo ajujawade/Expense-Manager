@@ -1,0 +1,80 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  background: linear-gradient(to bottom, #f0f2f5, #d9e2ec);
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #555;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Dashboard Container */
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  animation: bounceIn 1s ease-in;
+}
+
+/* Profit & Loss stats */
+.stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.stat {
+  text-align: center;
+  padding: 15px;
+  border: 2px solid #666;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.stat:hover {
+  transform: scale(1.1);
+}
+
+/* Back Link */
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #ff6f61;
+}
+
+/* Animations */
+@keyframes bounceIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,87 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General Body Appearance */
+body {
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+}
+
+/* Main container */
+.container {
+  background: white;
+  color: black;
+  padding: 30px 40px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-100px);
+  animation: slideIn 1s ease-out forwards;
+  max-width: 400px;
+  font-size: 20px;
+}
+
+/* Smooth slide-down animation */
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Typing effect container */
+.typing-container {
+  font-size: 24px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid black; /* Create a cursor effect */
+  animation: blinkCursor 1s step-start infinite;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+/* Cursor blinking effect */
+@keyframes blinkCursor {
+  0% {
+    border-right: 3px solid black;
+  }
+  50% {
+    border-right: 3px solid transparent;
+  }
+  100% {
+    border-right: 3px solid black;
+  }
+}
+
+/* Button (Login) styles */
+.btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  background: #333;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  font-size: 16px;
+}
+
+/* Hover effect on Login button */
+.btn:hover {
+  background-color: #555;
+  transform: scale(1.1);
+}
