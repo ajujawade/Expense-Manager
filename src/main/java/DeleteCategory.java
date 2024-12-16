@@ -1,4 +1,4 @@
-package in.sp.backend;
+
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -11,35 +11,38 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/editCategory")  // This URL is the key to resolving the request
-public class EditCategory extends HttpServlet {
+@WebServlet("/deleteCategory")
+public class DeleteCategory extends HttpServlet {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/expensemanager";
     private static final String DB_USERNAME = "root";
     private static final String DB_PASSWORD = "Latari1234!";
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
-        String name = req.getParameter("name");
-        String type = req.getParameter("type");
-        double amount = Double.parseDouble(req.getParameter("amount"));
+        boolean isDeleted = false;
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
+
             try (Connection con = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD)) {
-                String query = "UPDATE categories SET name = ?, type = ?, amount = ? WHERE id = ?";
+                String query = "DELETE FROM categories WHERE id = ?";
                 try (PreparedStatement ps = con.prepareStatement(query)) {
-                    ps.setString(1, name);
-                    ps.setString(2, type);
-                    ps.setDouble(3, amount);
-                    ps.setInt(4, Integer.parseInt(id));
-                    ps.executeUpdate();
+                    ps.setInt(1, Integer.parseInt(id));
+                    int rowsAffected = ps.executeUpdate();
+                    isDeleted = rowsAffected > 0; // Check if deletion was successful
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        resp.sendRedirect(req.getContextPath() + "/viewCategories.jsp");
+        // Redirect based on deletion result
+        if (isDeleted) {
+            resp.sendRedirect(req.getContextPath() + "/viewCategories.jsp");
+        } else {
+            resp.getWriter().write("<h3>Error: Unable to delete category.</h3>");
+            resp.getWriter().write("<a href='" + req.getContextPath() + "/viewCategories.jsp'>Back to Categories</a>");
+        }
     }
 }

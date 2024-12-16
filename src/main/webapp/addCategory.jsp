@@ -1,4 +1,3 @@
-<%@ page import="in.sp.backend.AddCategory" %>
 <!DOCTYPE html>
 <html>
 <head>

@@ -14,8 +14,7 @@ body {
 
 /* Background */
 body {
-  background: linear-gradient(to bottom, #f4f4f4, #e0e0e0);
-  animation: backgroundAnimation 3s ease infinite;
+  background: #f4f4f4; /* Simple light grey background */
 }
 
 /* Centered Form Container */
@@ -26,15 +25,13 @@ body {
   background: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  animation: fadeIn 1s ease-in-out;
 }
 
 /* Form Title */
 h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: #555;
-  animation: bounce 1.5s ease;
+  color: #333; /* Darker text for contrast */
 }
 
 /* Form Styles */
@@ -45,7 +42,7 @@ form {
 }
 
 label {
-  color: #555;
+  color: #333; /* Darker text for labels */
   font-size: 14px;
 }
 
@@ -53,99 +50,25 @@ input[type="text"],
 input[type="number"],
 select {
   padding: 8px;
-  border: 1px solid #aaa;
+  border: 1px solid #ccc; /* Lighter border color */
   border-radius: 4px;
   font-size: 16px;
-  transition: all 0.2s ease;
-}
-
-input[type="text"]:hover,
-input[type="number"]:hover,
-select:hover {
-  border-color: #ff6f61;
 }
 
 /* Submit Button */
 input[type="submit"] {
-  background: #ff6f61;
+  background: #4CAF50; /* Simple green color */
   color: white;
   border: none;
   padding: 10px 15px;
-  text-transform: uppercase;
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-input[type="submit"]:hover {
-  background: #e63946;
-  transform: scale(1.1);
 }
 
 /* Back to Dashboard link */
 a.back-link {
   text-decoration: none;
-  color: #555;
+  color: #333;
   font-size: 14px;
-  transition: all 0.3s ease;
-}
-
-a.back-link:hover {
-  color: #ff6f61;
-  transform: scale(1.05);
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes backgroundAnimation {
-  0% {
-    background-color: #e0e0e0;
-  }
-  50% {
-    background-color: #d3d3d3;
-  }
-  100% {
-    background-color: #f4f4f4;
-  }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .container {
-    padding: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  h2 {
-    font-size: 18px;
-  }
-
-  input[type="text"],
-  input[type="number"],
-  select {
-    font-size: 14px;
-  }
 }
